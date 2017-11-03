@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api name="/captcha/send_loan_sms_direct_ajax" allowExtra="false">
+    <parameters>
+        <parameter name="mobile" type="html_string" minLength="11" maxLength="11" required="true" default=""/>
+        <parameter name="type" type="int" minValue="0" maxValue="5" required="true" default="0"/>
+    </parameters>
+    <rules/>
+    <customValidators/>
+</api>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2017-2022 by Ovfintech (Wuhan) Technology Co., Ltd.
+  ~ All right reserved.
+  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- 线程执行器配置，用于任务注册 -->
+    <bean id="executor"
+          class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="10" />
+        <property name="maxPoolSize" value="100" />
+        <property name="queueCapacity" value="500" />
+    </bean>
+
+    <!-- 订单过期查看， 每隔三分钟一次 -->
+    <!--<bean id="orderExpireJobDetail"-->
+          <!--class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">-->
+        <!--<property name="targetObject" ref="orderExpireJob" />-->
+        <!--<property name="targetMethod" value="runJob" />-->
+    <!--</bean>-->
+    <!--<bean id="orderExpireTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">-->
+        <!--<property name="startDelay">-->
+            <!--<value>1000</value>-->
+        <!--</property>-->
+        <!--<property name="jobDetail" ref="orderExpireJobDetail" />-->
+        <!--&lt;!&ndash; 每隔三分钟一次 &ndash;&gt;-->
+        <!--<property name="cronExpression" value="0 0/3 * ? * *" />-->
+    <!--</bean>-->
+
+    <!-- 首页缓存数据刷新， 每隔十五分钟一次 -->
+    <!--<bean id="homeCacheRefreshDetail"-->
+          <!--class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">-->
+        <!--<property name="targetObject" ref="homeCacheRefreshJob" />-->
+        <!--<property name="targetMethod" value="runJob" />-->
+    <!--</bean>-->
+    <!--<bean id="homeCacheRefreshTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">-->
+        <!--<property name="startDelay">-->
+            <!--<value>1000</value>-->
+        <!--</property>-->
+        <!--<property name="jobDetail" ref="homeCacheRefreshDetail" />-->
+        <!--&lt;!&ndash; 每隔十五分钟一次 &ndash;&gt;-->
+        <!--<property name="cronExpression" value="0 0/15 * ? * *" />-->
+    <!--</bean>-->
+
+
+
+     <!--loan-biz贷款放款时间查看， 每隔一个小时一次-->
+    <!--<bean id="loanScanAvailable" class="com.fruit.portal.job.LoanScanAvaliableJob" />-->
+
+    <!--<bean id="loanScanAvailableDetail"-->
+    <!--class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">-->
+        <!--<property name="targetObject" ref="loanScanAvailable" />-->
+        <!--<property name="targetMethod" value="runJob" />-->
+    <!--</bean>-->
+    <!--<bean id="loanScanAvailableTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">-->
+        <!--<property name="startDelay">-->
+            <!--<value>1000</value>-->
+        <!--</property>-->
+        <!--<property name="jobDetail" ref="loanScanAvailableDetail" />-->
+        <!--&lt;!&ndash; 每隔一个小时一次 &ndash;&gt;-->
+        <!--<property name="cronExpression" value="0 0 */1 * * ?" />-->
+        <!--&lt;!&ndash;<property name="cronExpression" value="0 */2 * * * ?" />&ndash;&gt;-->
+    <!--</bean>-->
+
+
+    <!--loan-biz贷款还款时间查看， 每天下午16点一次-->
+    <bean id="loanScanPreparePay" class="com.fruit.portal.job.LoanScanPreparePayJob" />
+
+    <bean id="loanScanPreparePayDetail"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="loanScanPreparePay" />
+        <property name="targetMethod" value="runJob" />
+    </bean>
+    <bean id="loanScanPreparePayTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="startDelay">
+            <value>1000</value>
+        </property>
+        <property name="jobDetail" ref="loanScanPreparePayDetail" />
+        <!-- 每天下午16点一次 -->
+        <property name="cronExpression" value="0 0 16 * * ?" />
+
+        <!--<property name="cronExpression" value="0 */2 * * * ?" />-->
+        <!--测试：两分钟-->
+    </bean>
+
+
+
+    <!--loan-biz扫描合同文件，并解析， 每隔二十分钟一次-->
+    <bean id="loanContractTxt" class="com.fruit.portal.job.LoanContractTxtJob" />
+
+    <bean id="loanContractTxtDetail"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="loanContractTxt" />
+        <property name="targetMethod" value="runJob" />
+    </bean>
+    <bean id="loanContractTxtTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="startDelay">
+            <value>1000</value>
+        </property>
+        <property name="jobDetail" ref="loanContractTxtDetail" />
+        <!-- 每隔二十分钟一次 -->
+        <property name="cronExpression" value="0 */20 * * * ?" />
+        <!--<property name="cronExpression" value="0 */1 * * * ?" />-->
+    </bean>
+
+
+
+
+
+    <!--loan-biz贷款代扣还款失败，再次代扣， 每天下午17点一次-->
+    <bean id="loanFailedRestart" class="com.fruit.portal.job.LoanFailedRestartJob" />
+
+    <bean id="loanFailedRestartDetail"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="loanFailedRestart" />
+        <property name="targetMethod" value="runJob" />
+    </bean>
+    <bean id="loanFailedRestartTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="startDelay">
+            <value>1000</value>
+        </property>
+        <property name="jobDetail" ref="loanFailedRestartDetail" />
+        <!-- 每天下午17点一次 -->
+        <property name="cronExpression" value="0 0 17 * * ?" />
+
+        <!--<property name="cronExpression" value="0 */2 * * * ?" />-->
+        <!--测试：两分钟-->
+    </bean>
+
+
+    <!--贷款还款提前一天提醒，每天早上10点一次-->
+    <bean id="loanPreparePayNotice" class="com.fruit.portal.job.LoanPreparePayNoticeJob" />
+
+    <bean id="loanPreparePayNoticeDetail"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="loanPreparePayNotice" />
+        <property name="targetMethod" value="runJob" />
+    </bean>
+    <bean id="loanPreparePayNoticeTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="startDelay">
+            <value>1000</value>
+        </property>
+        <property name="jobDetail" ref="loanPreparePayNoticeDetail" />
+        <!-- 每天早上10点一次 -->
+        <property name="cronExpression" value="0 0 10 * * ?" />
+
+        <!--<property name="cronExpression" value="0 */2 * * * ?" />-->
+        <!--测试：两分钟-->
+    </bean>
+
+
+
+
+
+    <!-- 设置调度 -->
+    <bean lazy-init="false" class="org.springframework.scheduling.quartz.SchedulerFactoryBean" >
+        <property name="triggers">
+            <list>
+                <!--<ref bean="loanScanAvailableTrigger" />  20170822 由于电子借据需要银行手动签署来放款，所以自动放款任务关闭-->
+                <ref bean="loanScanPreparePayTrigger" />
+                <ref bean="loanContractTxtTrigger" />
+                <ref bean="loanFailedRestartTrigger" />
+                <ref bean="loanPreparePayNoticeTrigger" />
+                <!--<ref bean="orderExpireTrigger" />-->
+                <!--<ref bean="homeCacheRefreshTrigger" />-->
+            </list>
+        </property>
+        <property name="taskExecutor" ref="executor" />
+        <property name="autoStartup" value="true"/>
+    </bean>
+
+</beans>

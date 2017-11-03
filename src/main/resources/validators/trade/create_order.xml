@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api name="/order/create_order" allowExtra="false">
+    <parameters>
+        <parameter name="userId" type="int" minValue="1" default="0"/>
+        <parameter name="type" type="int" minValue="1" default="0"/>
+        <parameter name="supplierId" type="int" minValue="1" default="0"/>
+        <parameter name="orderContainers" type="html_string" required="true"/>
+    </parameters>
+    <rules/>
+    <customValidators/>
+</api>

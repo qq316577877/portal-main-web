@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api name="/member/info/modify_phonenum_ajax" allowExtra="true">
+    <parameters>
+        <parameter name="phoneNum" type="html_string" minLength="1" maxLength="32" required="true"/>
+    </parameters>
+    <rules/>
+    <customValidators/>
+</api>

@@ -1,0 +1,108 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+               http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+               http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+
+    <!--i18n-->
+    <bean id="messageSource"
+          class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>messages</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="propertyConfigurer" class="com.fruit.portal.config.EncryptPropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:config/properties/alpha.properties</value>
+                <value>classpath:config/properties/beta.properties</value>
+                <value>classpath:config/properties/dev.properties</value>
+                <value>classpath:config/properties/product.properties</value>
+            </list>
+        </property>
+        <property name="encryptedProps">
+            <set>
+                <value>ds.username</value>
+                <value>ds.password</value>
+                <value>ds.search.username</value>
+                <value>ds.search.password</value>
+                <value>pay.alipay.pid</value>
+                <value>pay.alipay.md5key</value>
+                <value>delivery.kuaidiKey</value>
+                <value>delivery.kuaidiSalt</value>
+                <value>pay.kuaiqian.pid</value>
+                <value>pay.kuaiqian.md5Key</value>
+                <value>wechat.appid</value>
+                <value>wechat.secret</value>
+                <value>ds.points.username</value>
+                <value>ds.points.password</value>
+                <value>pay.kuaiqian.secret</value>
+            </set>
+        </property>
+    </bean>
+    
+    <bean id="bizLogMarinPrinter" class="com.ovfintech.arch.log.MarinPrinter"
+          init-method="init">
+        <property name="fileName" value="bizlog" />
+        <property name="business" value="portal-main-web" />
+        <property name="type">
+            <value type="com.ovfintech.arch.log.LogTypeEnum">FILE</value>
+        </property>
+        <property name="rollingEnum">
+            <value type="com.ovfintech.arch.log.RollingEnum">DAILY</value>
+        </property>
+        <property name="requiredField">
+            <list>
+            </list>
+        </property>
+    </bean>
+
+    <!--<bean class="com.fruit.pay.client.wechat.notify.NotifyService"/>-->
+    <!--<bean class="com.fruit.pay.client.wechat.order.UnifiedOrderService"/>-->
+    <!--<bean class="com.fruit.pay.client.wechat.query.QueryOrderService"/>-->
+    <!--<bean class="com.fruit.pay.client.kuaiqian.KuaiqianHelper"/>-->
+
+    <bean id="captchaProducer" class="com.google.code.kaptcha.impl.DefaultKaptcha">
+        <property name="config">
+            <bean class="com.google.code.kaptcha.util.Config">
+                <constructor-arg type="java.util.Properties">
+                    <props>
+                        <prop key="kaptcha.border">no</prop>
+                        <prop key="kaptcha.textproducer.font.color">0,170,92</prop>
+                        <prop key="kaptcha.noise.color">0,170,92</prop>
+                        <prop key="kaptcha.image.width">150</prop>
+                        <prop key="kaptcha.image.height">50</prop>
+                        <prop key="kaptcha.noise.impl">com.google.code.kaptcha.impl.DefaultNoise</prop>
+                        <prop key="kaptcha.textproducer.char.string">abcdefghijklmnopqrstuvwxyz</prop>
+                        <prop key="kaptcha.textproducer.char.length">4</prop>
+                    </props>
+                </constructor-arg>
+            </bean>
+        </property>
+    </bean>
+
+    <import resource="applicationContext-mvc.xml"/>
+    <import resource="applicationContext-verify.xml"/>
+    <import resource="applicationContext-service.xml"/>
+    <import resource="classpath*:spring/archevent/applicationContext-event.xml"/>
+    <import resource="applicationContext-event.xml"/>
+    <import resource="applicationContext-quartz.xml"/>
+    <import resource="applicationContext-cache.xml"/>
+    <import resource="applicationContext-dubbo.xml"/>
+    <import resource="applicationContext-jms.xml"/>
+
+    <context:component-scan base-package="com.fruit.base.file.upload.aliyun.client"/>
+    <context:component-scan base-package="com.ovfintech.arch.validation"/>
+    <context:component-scan base-package="com.fruit.portal"/>
+
+    <task:annotation-driven/>
+    <context:component-scan base-package="com.fruit.loan.biz.task"/>
+
+
+</beans>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api name="/member/account/modify_mobile_verify_ajax" allowExtra="true">
+    <parameters>
+        <parameter name="captcha" type="html_string" minLength="6" maxLength="6" required="true"/>
+    </parameters>
+    <rules/>
+    <customValidators/>
+</api>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2017-2022 by Ovfintech (Wuhan) Technology Co., Ltd.
+  ~ All right reserved.
+  -->
+
+<api name="/member/info/get_user_information_ajax" allowExtra="true">
+    <parameters>
+        <parameter name="mobile" type="html_string" minLength="11" maxLength="11" required="true"/>
+    </parameters>
+    <rules/>
+    <customValidators/>
+</api>

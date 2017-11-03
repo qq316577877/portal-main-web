@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2017-2022 by Ovfintech (Wuhan) Technology Co., Ltd.
+  ~ All right reserved.
+  -->
+
+<api name="/member/bank/update_user_bank_information_ajax" allowExtra="true">
+    <parameters>
+        <parameter name="id" type="int" minValue="1" required="true"/>
+        <parameter name="accountName" type="html_string" minLength="1" maxLength="128" required="true"/>
+        <parameter name="provinceId" type="int" minValue="1" default="0" required="true"/>
+        <parameter name="cityId" type="int" minValue="1" default="0" required="true"/>
+        <parameter name="districtId" type="int" minValue="1" default="0" required="true"/>
+        <parameter name="bankTypeId" type="int" minLength="1" default="0" required="true"/>
+        <parameter name="bankName" type="html_string" minLength="1" maxLength="128" required="true"/>
+        <parameter name="bankCard" type="html_string" minLength="1" maxLength="64" required="true"/>
+        <!--<parameter name="isDefault" type="int" minValue="0" required="true"/> //20170525产品经理：银行卡去掉是否默认功能-->
+    </parameters>
+    <rules/>
+    <customValidators/>
+</api>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api name="/member/info/modify_qq_ajax" allowExtra="true">
+    <parameters>
+        <parameter name="qq" type="html_string" minLength="4" maxLength="11" required="true" />
+
+    </parameters>
+    <rules/>
+    <customValidators/>
+</api>

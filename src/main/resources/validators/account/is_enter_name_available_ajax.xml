@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api name="/member/enterprise/auth/is_enter_name_available_ajax" allowExtra="true">
+	<parameters>
+        <parameter name="enterpriseName" type="html_string"  maxLength="32" required="true" trim="true"/>
+	</parameters>
+	<rules/>
+	<customValidators />
+</api>

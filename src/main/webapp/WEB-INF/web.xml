@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+
+    <display-name>ovfintech Partner Mobile Web</display-name>
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>default</servlet-name>-->
+        <!--<url-pattern>index.jsp</url-pattern>-->
+    <!--</servlet-mapping>-->
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            classpath:config/spring/local/applicationContext-core.xml
+        </param-value>
+    </context-param>
+
+    <!-- This listener will load other application context file in addition
+        to springweb-servlet.xml -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+
+    <listener>
+        <listener-class>com.fruit.portal.listener.StartListener</listener-class>
+    </listener>
+
+    <!-- 黑名单 -->
+    <filter>
+        <filter-name>blacklistFilter</filter-name>
+        <filter-class>com.fruit.portal.filter.BlacklistFilter</filter-class>
+    </filter>
+    
+    <!-- utf8 -->
+    <filter>
+        <filter-name>encodingfilter</filter-name>
+        <filter-class>
+            org.springframework.web.filter.CharacterEncodingFilter
+        </filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+
+    <filter>
+        <filter-name>webcontextFilter</filter-name>
+        <filter-class>com.ovfintech.arch.web.mvc.filter.WebContextFilter</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>weChatFilter</filter-name>
+        <filter-class>com.fruit.portal.filter.WeChatFilter</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>envFilter</filter-name>
+        <filter-class>com.fruit.portal.filter.EnvFilter</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>securityFilter</filter-name>
+        <filter-class>com.fruit.portal.filter.SecurityFilter</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>cat-filter</filter-name>
+        <filter-class>com.dianping.cat.servlet.CatFilter</filter-class>
+    </filter>
+
+    <!-- Filter mapping -->
+    <filter-mapping>
+        <filter-name>blacklistFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>encodingfilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>cat-filter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>weChatFilter</filter-name>
+        <url-pattern>/wechat/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>weChatFilter</filter-name>
+        <url-pattern>/neworder/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>envFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>securityFilter</filter-name>
+        <url-pattern>/spy</url-pattern>
+        <url-pattern>/sv</url-pattern>
+        <url-pattern>/b</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>webcontextFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>com.ovfintech.arch.web.mvc.dispatch.Dispatcher</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>spy</servlet-name>
+        <servlet-class>com.ovfintech.arch.common.servlet.SpyServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>monitorServlet</servlet-name>
+        <servlet-class>com.ovfintech.arch.common.servlet.MonitorServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>stativVersionServlet</servlet-name>
+        <servlet-class>com.fruit.portal.web.StativVersionServlet</servlet-class>
+    </servlet>
+
+    <!--<servlet>-->
+        <!--<servlet-name>backendServlet</servlet-name>-->
+        <!--<servlet-class>com.fruit.portal.web.BackendServlet</servlet-class>-->
+    <!--</servlet>-->
+
+    <servlet>
+        <servlet-name>redirectServlet</servlet-name>
+        <servlet-class>com.fruit.portal.web.RedirectServlet</servlet-class>
+    </servlet>
+
+    <!-- Dispatch -->
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- Dispatch -->
+    <servlet-mapping>
+        <servlet-name>redirectServlet</servlet-name>
+        <url-pattern>/p/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- Spy -->
+    <servlet-mapping>
+        <servlet-name>spy</servlet-name>
+        <url-pattern>/spy</url-pattern>
+    </servlet-mapping>
+
+    <!-- heart beat -->
+    <servlet-mapping>
+        <servlet-name>monitorServlet</servlet-name>
+        <url-pattern>/heart</url-pattern>
+    </servlet-mapping>
+
+    <!-- static version -->
+    <servlet-mapping>
+        <servlet-name>stativVersionServlet</servlet-name>
+        <url-pattern>/sv</url-pattern>
+    </servlet-mapping>
+
+    <!-- static version -->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>backendServlet</servlet-name>-->
+        <!--<url-pattern>/b</url-pattern>-->
+    <!--</servlet-mapping>-->
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/500.html</location>
+    </error-page>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404.html</location>
+    </error-page>
+
+    <error-page>
+        <exception-type>java.lang.RuntimeException</exception-type>
+        <location>/500.html</location>
+    </error-page>
+
+</web-app>

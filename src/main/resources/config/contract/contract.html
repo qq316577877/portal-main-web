@@ -1,0 +1,319 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>工业电气货物购销合同</title>
+    <style type="text/css">
+        body, span, object, iframe, p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 12px;
+            font-family: SimSun;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+        }
+
+        body {
+            line-height: 1;
+            color: #333;
+            background-color: #fff;
+        }
+
+        section, article, aside, header, footer, nav, dialog, figure {
+            display: block;
+        }
+
+        figure {
+            margin: 0;
+        }
+
+        ul, ol, li {
+            list-style: none outside;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1b8adb;
+            outline: 0 none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #1b8adb;
+        }
+
+        i, em {
+            font-style: normal;
+        }
+
+        abbr[title], acronym[title] {
+            border-bottom: 1px dotted;
+            cursor: help;
+        }
+
+        fieldset, img {
+            border: none;
+        }
+
+        body, html {
+            line-height: 1.5;
+            font-size: 12px;
+        }
+
+        button, input, select, textarea {
+            font-size: 12px;
+            margin: 0;
+            padding: 0;
+            outline: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background-color: #e9e9e9;
+        }
+
+        textarea, input {
+            resize: none;
+            outline: none;
+        }
+
+        textarea {
+            resize: none;
+            -webkit-appearance: none;
+            border: 1px solid #ccc;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        .wrap {
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 16px;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .bargain-tit .tit {
+            padding-bottom: 10px;
+        }
+
+        .bargain-tips {
+            padding-bottom: 20px;
+        }
+
+        .bargain-list {
+            padding-bottom: 20px;
+        }
+
+        .bargain-list .bargain-hd {
+            padding-bottom: 10px;
+        }
+
+        table{
+            border-collapse: collapse;
+        }
+
+        table th {
+            background-color: #ededed;
+            padding: 10px;
+            border: 1px solid #c8c8c8;
+            text-align: center;
+        }
+
+        table td {
+            padding: 10px;
+            border: 1px solid #c8c8c8;
+            text-align: center;
+        }
+
+        .bargain-sum {
+            border: 1px solid #c8c8c8;
+            text-align: right;
+            border-top: 0;
+            padding: 10px;
+            line-height: 25px;
+        }
+
+        .bargain-txt .txt {
+            line-height: 25px;
+        }
+
+        .signature {
+            overflow: hidden;
+            zoom: 1;
+            padding-bottom: 20px;
+        }
+
+        .signature .signature-list {
+            float: left;
+            border: 1px solid #c8c8c8;
+            width: 300px;
+            padding: 10px;
+        }
+
+        .signature .signature-list dt {
+            padding-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .signature .signature-list dd {
+            padding: 5px 0
+        }
+
+        .signature .signature-right {
+            float: right;
+            position:relative;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+    <h1>工业电气货物购销合同</h1>
+
+    <div class="bargain-wrap">
+        <div class="bargain-tit">
+            <p class="tit">需方：${buyer}</p>
+            <p class="tit">供方：${seller}</p>
+            <p class="tit">第三方：上海九创金服信息技术有限公司</p>
+        </div>
+        <div class="bargain-tips">根据《中华人民共和国合同法》和相关法律法规的规定，需供双方本着互利互惠与共同发展的原则，签订本合同，并按下列条款进行交易。</div>
+        <div class="bargain-list">
+            <div class="bargain-hd">一、合同概要</div>
+            <div class="bargain-txt">
+                <p>需方同意通过第三方旗下九创金服（以下简称“九创金服”）向供方购买、供方同意通过九创金服向需方销售下列货物，型号及价格如下：</p>
+                <br/>
+                <p style="text-align: right">订单编号：${order_id}</p>
+                <p style="text-align: right">签订时间：${time}</p>
+                <br/>
+                <div class="bargain-table">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <th >品牌</th>
+                            <th >型号</th>
+                            <th >描述</th>
+                            <th >单价(元)</th>
+                            <th >数量</th>
+                            <th >总价(元)</th>
+                            <th >货期</th>
+                        </tr>
+                        <tbody>
+                        ${contents}
+                        </tbody>
+                    </table>
+                    <div class="bargain-sum">
+                        <p class="sum">总商品金额(元)：${product_amount}</p>
+
+                        <p class="sum">运费(元)：${freight}</p>
+
+                        <p class="sum">应付金额(元)：${total_amount}</p>
+
+                        <p class="sum">合计人民币金额(大写)：${total_amount_upcase}整</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bargain-list">
+            <div class="bargain-hd">二、付款方式</div>
+            <div class="bargain-txt">
+                <p>本合同由九创金服提供支付宝及快钱第三方交易担保：</p>
+
+                <div class="txt">
+                    <p>1. 需方将产品全款打入九创金服提供的支付宝或快钱第三方支付账号后，九创金服将自动通知供方发货。</p>
+                    <p>2. 供方收到通知后安排发货并将物流信息（货运公司、运单号等必备信息）提交到九创金服并确认已发货。</p>
+                    <p>3. 在供方发货后，如需方因货物验收不通过或其他原因申请退款退货，供方同意后，九创金服将第一时间将需方全额货款转账给需方支付账户。</p>
+                    <p>4. 待需方收到货物并在九创金服点击确认收货后，供方可以随时在自己的九创金服账号内点击提现申请，九创金服将在收到申请后第一时间将需方全额货款转账给供方指定银行账户。需方确认收货后，退款退货事宜由需供双方自行沟通解决。</p>
+                    <p>5. 如使用九创金服担保支付，请转账到以下银行账户：</p>
+                    <p>开户行：中国工商银行上海市漕河泾开发区支行</p>
+                    <p>户名：上海九创金服信息技术有限公司</p>
+                    <p>账号：1001 2663 0920 0356 615</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bargain-list">
+            <div class="bargain-hd">三、运费及发票</div>
+            <div class="bargain-txt">
+                <div class="txt">
+                    <p>1. 运输方式及到达站港和费用将由${freight_side}承担，到达站：${delivery_address}。</p>
+                    <p>2. 发票：合同结算完成之后，供方需向需方开具含税的17%增值税发票。</p>
+                    <p>3. 收货：需方在收到货物时请注意检查货物在快递途中是否有损坏，如若有问题请和供方联系并拒绝签收快递，收到货后需要请及时在九创金服管理后台点击确认收货以使订单进入下一个流程。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bargain-list">
+            <div class="bargain-hd">四、质量要求及检验标准</div>
+            <div class="bargain-txt">
+                <div class="txt">
+                    <p>1. 新品：供方保证所供货物均为原厂生产，原厂包装的合格货物，符合双方认可的质量标准，并有相应的质量合格证书。需方需尽快与供方联系，货物本身质量问题，将由供方交由原厂家检测、维修处理（保修期为一年）；如若认为或由需方造成，则原厂家检测出结果，所有一切维修费用将由需方承担。</p>
+                    <p>2. 闲置库存：货物包装、性能、新旧度等以供方网页发布为准，供方承诺发出货物与网页发布的信息相符。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bargain-list">
+            <div class="bargain-hd">五、保证及声明</div>
+            <div class="bargain-txt">
+                <div class="txt">
+                    <p>1. 需供双方应披露其真实身份，提供身份资料（企业登记资料）、联系方式等，并保证所提供资料信息内容的真实、完整、合法及有效。任何一方资料信息发生变更应及时通知九创金服及交易对方。</p>
+                    <p>2. 九创金服保证提供需供双方的真实姓名、地址及有效联系方式。</p>
+                    <p>3. 九创金服仅提供需供双方交易的服务平台，其并不作为交易的任何一方参与交易。</p>
+                    <p>4. 九创金服仅承担支付保障义务，即为交易安全提供暂时保管业务，遵从支付宝及快钱公司政策以及本合同第二条约定及时履行通知及全额转账义务。前述暂时保管的货款不代表九创金服收入。</p>
+                    <p>5. 对于供需双方就交易所产生的任何争议（包括但不限于货品质量），九创金服不介入该争议且不承担任何责任。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bargain-list">
+            <div class="bargain-hd">六、合同生效</div>
+            <div class="bargain-txt">
+                <div class="txt">
+                    <p>本合同系根据已确认的交易订单所产生的细节自动生成并附有通过特定软件自动生成的供需双方的合同图章而达成的合意。根据《中华人民共和国合同法》及《中华人民共和国电子签名法》的规定，本合同下的双方图章不与手写的签字与盖章享有同等法律效力，本合同仅对双方的实际交易提供证明作用。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="signature" border="1">
+            <div class="signature-list">
+                <dl>
+                    <dt>需方</dt>
+                    <dd>公司名称：${buyer}</dd>
+                    <dd>所在地：${buyer_location}</dd>
+                    <dd>公司地址：${buyer_address}</dd>
+                    <dd>联系电话：${buyer_mobile}</dd>
+                </dl>
+            </div>
+            <div class="signature-list signature-right">
+                <dl>
+                    <dt>供方</dt>
+                    <dd>公司名称：${seller}</dd>
+                    <dd>所在地：${seller_location}</dd>
+                    <dd>公司地址：${seller_address}</dd>
+                    <dd>联系电话：${seller_mobile}</dd>
+                </dl>
+                <div style=" position:absolute; right:60px; top:0px;"><img src="${seal_pic}" width="160" height="160"/></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

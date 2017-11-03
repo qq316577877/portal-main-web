@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api name="/member/register_account_ajax" allowExtra="true">
+	<parameters>
+
+        <parameter name="password" type="html_string" minLength="6" maxLength="18" required="true"/>
+        <parameter name="mobile" type="html_string" minLength="11" maxLength="11" required="true" />
+        <parameter name="mobileCaptcha" type="html_string" minLength="6" maxLength="6" required="true"/>
+        <parameter name="qq" type="html_string" minLength="4" maxLength="11" required="false" />
+        <parameter name="email" type="html_string" minLength="5" required="false" />
+
+	</parameters>
+	<rules/>
+	<customValidators />
+</api>

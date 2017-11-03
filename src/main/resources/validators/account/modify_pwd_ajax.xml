@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api name="/member/info/modify_pwd_ajax" allowExtra="true">
+    <parameters>
+        <parameter name="oldPassword" type="html_string" minLength="6" maxLength="18" required="true"/>
+        <parameter name="newPassword" type="html_string" minLength="6" maxLength="18" required="true"/>
+    </parameters>
+    <rules/>
+    <customValidators/>
+</api>

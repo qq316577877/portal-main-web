@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2017-2022 by Ovfintech (Wuhan) Technology Co., Ltd.
+  ~ All right reserved.
+  -->
+
+<api name="/loan/info/get_loan_info_list_apply_ajax" allowExtra="true">
+    <parameters>
+        <parameter name="pageIndex" type="int" minValue="1" default="1"/>
+        <parameter name="keyword" type="html_string" minLength="1" maxLength="128" required="false"/>
+        <parameter name="pageSize" type="int" minValue="1" default="10" required="false"/>
+        <parameter name="status" type="int"  default="-1" required="false"/>
+    </parameters>
+    <rules/>
+    <customValidators/>
+</api>

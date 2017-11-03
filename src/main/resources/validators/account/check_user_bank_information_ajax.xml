@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api name="/member/bank/check_user_bank_information_ajax" allowExtra="true">
+    <parameters>
+        <parameter name="bankCard" type="html_string" minLength="1" maxLength="64" required="true"/>
+    </parameters>
+    <rules/>
+    <customValidators/>
+</api>

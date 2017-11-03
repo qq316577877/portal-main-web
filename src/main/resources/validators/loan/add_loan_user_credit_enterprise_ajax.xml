@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2017-2022 by Ovfintech (Wuhan) Technology Co., Ltd.
+  ~ All right reserved.
+  -->
+
+<api name="/loan/auth/add_loan_user_credit_enterprise_ajax" allowExtra="true">
+    <parameters>
+        <parameter name="enterpriseName" type="html_string" minValue="1" maxLength="64" required="true"/>
+        <parameter name="credential" type="html_string" minValue="1" maxLength="32" required="true"/>
+        <parameter name="username" type="html_string" minValue="1" maxLength="32" required="true"/>
+        <parameter name="identity" type="html_string" minValue="1" maxLength="32" required="true"/>
+        <parameter name="mobile" type="html_string" minValue="1" maxLength="32" required="true"/>
+        <parameter name="maritalStatus" type="int"  default="0" required="true"/>
+        <parameter name="partnerName" type="html_string" minValue="1" maxLength="32" required="false"/>
+        <parameter name="partnerIdentity" type="html_string" minValue="1" maxLength="32" required="false"/>
+        <parameter name="countryId" type="int"  default="0" required="false"/>
+        <parameter name="provinceId" type="int"  default="0" required="false"/>
+        <parameter name="cityId" type="int"  default="0" required="false"/>
+        <parameter name="districtId" type="int"  default="0" required="false"/>
+        <parameter name="address" type="html_string" minValue="1" maxLength="128" required="false"/>
+    </parameters>
+    <rules/>
+    <customValidators/>
+</api>

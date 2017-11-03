@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api name="/member/info/new_mobile_ajax" allowExtra="true">
+    <parameters>
+        <parameter name="mail" type="html_string" minLength="5" required="true" />
+    </parameters>
+    <rules/>
+    <customValidators/>
+</api>

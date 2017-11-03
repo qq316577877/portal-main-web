@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//log4j/log4j Configuration//EN" "log4j.dtd">
+
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+    <!-- Console Log, should be set to WARN on product -->
+    <appender name="CONSOLE"
+              class="org.apache.log4j.ConsoleAppender">
+        <param name="Target" value="System.out"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[portal-main-web]%d %-5p [%c] %m%n"/>
+        </layout>
+    </appender>
+
+    <!-- error log of log4j -->
+    <appender name="log4jAppender" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/data/applogs/portal-main-web-log4j.log"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[portal-main-web]%d %-5p [%c] %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="catAppender" class="com.dianping.cat.log4j.CatAppender"></appender>
+
+    <logger name="com.fruit" additivity="false">
+        <level value="error"/>
+        <appender-ref ref="catAppender"/>
+    </logger>
+
+
+    <root>
+        <level value="WARN"/>
+        <appender-ref ref="log4jAppender"/>
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</log4j:configuration>

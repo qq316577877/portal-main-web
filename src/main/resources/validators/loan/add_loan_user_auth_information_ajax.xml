@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2017-2022 by Ovfintech (Wuhan) Technology Co., Ltd.
+  ~ All right reserved.
+  -->
+
+<api name="/loan/auth/add_loan_user_auth_information_ajax" allowExtra="true">
+    <parameters>
+        <parameter name="username" type="html_string" minValue="1" maxLength="32" required="true"/>
+        <parameter name="identity" type="html_string" minValue="1" maxLength="32" required="true"/>
+        <parameter name="mobile" type="html_string" minValue="1" maxLength="32" required="true"/>
+        <parameter name="captcha" type="html_string" minLength="6" maxLength="6" required="true"/>
+        <parameter name="bankCard" type="html_string" minValue="1" maxLength="32" required="true"/>
+        <parameter name="bankId" type="int"  default="0" required="true"/>
+    </parameters>
+    <rules/>
+    <customValidators/>
+</api>

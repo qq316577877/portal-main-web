@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api name="/member/login_ajax" allowExtra="true">
+	<parameters>
+        <parameter name="mobile" type="html_string" minLength="6" maxLength="32" required="true" />
+		<parameter name="password" type="html_string" minLength="1" maxLength="18" required="true"/>
+        <parameter name="auto_login" type="int" minValue="0" maxValue="1" required="true" />
+	</parameters>
+	<rules/>
+	<customValidators />
+</api>

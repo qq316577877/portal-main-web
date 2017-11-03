@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2017-2022 by Ovfintech (Wuhan) Technology Co., Ltd.
+  ~ All right reserved.
+  -->
+
+<api name="/cache/product/remove_ajax" allowExtra="true">
+	<parameters>
+        <parameter name="product_id" type="int" required="true" minValue="1" />
+        <parameter name="sign" type="html_string" required="true" />
+	</parameters>
+	<rules/>
+	<customValidators />
+</api>

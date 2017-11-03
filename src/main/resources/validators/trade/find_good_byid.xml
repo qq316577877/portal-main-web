@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api name="/order/find_good_byId_ajax" allowExtra="false">
+    <parameters>
+        <parameter name="productId" type="html_string" minLength="0" maxLength="32" required="true" default=""/>
+    </parameters>
+    <rules/>
+    <customValidators/>
+</api>
